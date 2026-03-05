@@ -6,6 +6,11 @@
 
 RunSession::RunSession() : currentRound(1), score(0) {
     initDeck();
+    scoringSystem = new ScoringSystem(new StandardScoringStrategy());
+}
+
+RunSession::~RunSession() {
+    delete scoringSystem;
 }
 
 void RunSession::initDeck() {
@@ -79,18 +84,14 @@ void RunSession::playHand() {
 }
 
 void RunSession::calculateScore() {
-    int roundScore = 0;
+    std::cout << "\nCalculating base score..." << std::endl;
     
-    // Hitung base score dari kartu yang dipilih
-    for(const auto& card : playedCards) {
-        roundScore += card.value;
-    }
+    // Panggil ScoringSystem buat ngitung (Ini namanya delegasi, ciri khas Strategy Pattern)
+    int roundScore = scoringSystem->evaluateScore(playedCards);
     
-    // Nanti logika bonus kombinasi (seperti Pair/Flush) dan Multiplier masuk ke ScoringSystem
     score += roundScore;
     
-    std::cout << "Base Chips from cards: " << roundScore << std::endl;
-    std::cout << "Calculating final score... Gained " << roundScore << " points." << std::endl;
+    std::cout << "Base Chips from cards and combos: " << roundScore << std::endl;
     std::cout << "Current Total Score: " << score << std::endl;
 }
 
@@ -122,4 +123,5 @@ void RunSession::gameLoop() {
         currentRound++;
     }
     endRun();
+    
 }
