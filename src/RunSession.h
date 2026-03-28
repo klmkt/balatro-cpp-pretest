@@ -5,7 +5,8 @@
 #include "ScoringSystem.h"
 #include <vector>
 #include <string>
-
+#include "ShopSystem.h"
+#include "modifiers/IModifier.h"
 
 
 class RunSession {
@@ -14,6 +15,8 @@ private:
     const int maxRounds = 3;
     int score;
     ScoringSystem* scoringSystem;
+    ShopSystem* shopSystem;                    
+    std::vector<IModifier*> activeModifiers;
     
     // Tambahan untuk sistem kartu
     std::vector<Card> deck;

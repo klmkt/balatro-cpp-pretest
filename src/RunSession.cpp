@@ -7,10 +7,17 @@
 RunSession::RunSession() : currentRound(1), score(0) {
     initDeck();
     scoringSystem = new ScoringSystem(new StandardScoringStrategy());
+    shopSystem = new ShopSystem(); // Inisialisasi Shop
 }
 
 RunSession::~RunSession() {
     delete scoringSystem;
+    delete shopSystem;
+    // Bersihkan memori dari modifier yang udah dibeli
+    for (auto mod : activeModifiers) {
+        delete mod;
+    }
+    activeModifiers.clear();
 }
 
 void RunSession::initDeck() {
@@ -84,28 +91,35 @@ void RunSession::playHand() {
 }
 
 void RunSession::calculateScore() {
-    std::cout << "\nCalculating base score..." << std::endl;
+    std::cout << "\nCalculating score..." << std::endl;
     
-    // Panggil ScoringSystem buat ngitung (Ini namanya delegasi, ciri khas Strategy Pattern)
+    // 1. Dapatkan Base Score dari Scoring System (Strategy)
     int roundScore = scoringSystem->evaluateScore(playedCards);
-    
+    std::cout << "Base Score from cards & combos: " << roundScore << std::endl;
+
+    // 2. Terapkan efek modifier satu per satu (Decorator/Pipeline)
+    if (!activeModifiers.empty()) {
+        std::cout << "Applying Modifiers..." << std::endl;
+        for (auto mod : activeModifiers) {
+            roundScore = mod->apply(roundScore); // Timpa skor dengan skor yang udah dimodif
+            std::cout << "  -> " << mod->getName() << " applied. Score becomes: " << roundScore << std::endl;
+        }
+    }
+
+    // 3. Masukkan ke total skor game
     score += roundScore;
     
-    std::cout << "Base Chips from cards and combos: " << roundScore << std::endl;
-    std::cout << "Current Total Score: " << score << std::endl;
+    std::cout << "Final Score for Round " << currentRound << ": " << roundScore << std::endl;
+    std::cout << "Current Total Game Score: " << score << std::endl;
 }
 
 void RunSession::enterShop() {
-    std::cout << "\n--- Shop ---" << std::endl;
-    std::string choice;
+    // Panggil shop dan tangkap modifier yang dibeli
+    IModifier* boughtModifier = shopSystem->openShop();
     
-    std::cout << "Welcome to the Shop! Buy a modifier? (y/n): ";
-    std::cin >> choice;
-    
-    if (choice == "y" || choice == "Y") {
-        std::cout << "Modifier bought! (Effect will be implemented later)" << std::endl;
-    } else {
-        std::cout << "Skipping shop." << std::endl;
+    // Kalau user beli (nggak skip), masukin ke list modifier aktif
+    if (boughtModifier != nullptr) {
+        activeModifiers.push_back(boughtModifier);
     }
 }
 
