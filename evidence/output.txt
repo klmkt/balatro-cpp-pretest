@@ -1,0 +1,105 @@
+=== Starting New Run ===
+
+--- Round 1 ---
+Your Hand:
+[0] 7 of Hearts (Val: 7)
+[1] 5 of Hearts (Val: 5)
+[2] K of Diamonds (Val: 10)
+[3] A of Hearts (Val: 11)
+[4] Q of Hearts (Val: 10)
+[5] Q of Diamonds (Val: 10)
+[6] A of Spades (Val: 11)
+[7] 3 of Diamonds (Val: 3)
+
+How many cards do you want to play? (1-5): 4
+Enter the index number of the cards you want to play one by one:
+Card 1 index: 3
+Card 2 index: 4
+Card 3 index: 5
+Card 4 index: 6
+
+Playing hand with 4 cards...
+
+Calculating score...
+  -> Combo Activated: Duplicate Power! (+20 points)
+Base Score from cards & combos: 62
+Final Score for Round 1: 62
+Current Total Game Score: 62
+
+=== Welcome to the Modifier Shop! ===
+1. Buy 'Flat Boost' (+50 points) - Type 1
+2. Buy 'Double Power' (x2 multiplier) - Type 2
+3. Skip Shop - Type 3
+Choose an option (1-3): 2
+-> You bought Double Power!
+
+--- Round 2 ---
+Your Hand:
+[0] 4 of Hearts (Val: 4)
+[1] 2 of Diamonds (Val: 2)
+[2] Q of Clubs (Val: 10)
+[3] 10 of Clubs (Val: 10)
+[4] 9 of Hearts (Val: 9)
+[5] 3 of Spades (Val: 3)
+[6] 3 of Clubs (Val: 3)
+[7] K of Hearts (Val: 10)
+
+How many cards do you want to play? (1-5): 2
+Enter the index number of the cards you want to play one by one:
+Card 1 index: 5
+Card 2 index: 6
+
+Playing hand with 2 cards...
+
+Calculating score...
+  -> Combo Activated: Duplicate Power! (+20 points)
+Base Score from cards & combos: 26
+Applying Modifiers...
+  -> Double Power (x2 Multiplier) applied. Score becomes: 52
+Final Score for Round 2: 52
+Current Total Game Score: 114
+
+=== Welcome to the Modifier Shop! ===
+1. Buy 'Flat Boost' (+50 points) - Type 1
+2. Buy 'Double Power' (x2 multiplier) - Type 2
+3. Skip Shop - Type 3
+Choose an option (1-3): 3
+-> You skipped the shop.
+
+--- Round 3 ---
+Your Hand:
+[0] 6 of Clubs (Val: 6)
+[1] 8 of Spades (Val: 8)
+[2] 4 of Spades (Val: 4)
+[3] J of Spades (Val: 10)
+[4] 9 of Clubs (Val: 9)
+[5] 4 of Diamonds (Val: 4)
+[6] A of Diamonds (Val: 11)
+[7] 6 of Spades (Val: 6)
+
+How many cards do you want to play? (1-5): 4
+Enter the index number of the cards you want to play one by one:
+Card 1 index: 0
+Card 2 index: 7
+Card 3 index: 2
+Card 4 index: 5
+
+Playing hand with 4 cards...
+
+Calculating score...
+  -> Combo Activated: Duplicate Power! (+20 points)
+Base Score from cards & combos: 40
+Applying Modifiers...
+  -> Double Power (x2 Multiplier) applied. Score becomes: 80
+Final Score for Round 3: 80
+Current Total Game Score: 194
+
+=== Welcome to the Modifier Shop! ===
+1. Buy 'Flat Boost' (+50 points) - Type 1
+2. Buy 'Double Power' (x2 multiplier) - Type 2
+3. Skip Shop - Type 3
+Choose an option (1-3): 2
+-> You bought Double Power!
+
+=== Run Ended ===
+Final Score: 194
